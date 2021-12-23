@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = array();
-        $data['title'] = '鬼滅';
+        $data['title'] = 'QuizTowerへようこそ！';
         return view('Welcome',$data);
     }
 }
