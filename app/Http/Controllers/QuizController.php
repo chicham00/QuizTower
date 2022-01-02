@@ -1,23 +1,25 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Quiz;
 
 class QuizController extends Controller
 {
-    
+
     public function index()
     {
-        return view('top',);
+        return view('top');
     }
+
     public function question()
     {
-        return view('question',);
+        $quiz = Quiz::find(1);
+        return view('question',compact('quiz'));
     }
+
     public function answer()
     {
-        return view('answer',);
+        return view('answer');
     }
-    
 }
 

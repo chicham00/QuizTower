@@ -15,10 +15,11 @@
 
 	</head>
 	<body>
-		<a>パンはパンでも食べられないパンは？</a>
-		
+		 <p>問題：
+		 {{$quiz->question}}
+		 </p>
 		<form>
-			<p><textarea cols="50" rows="5"></textarea></p>
+			<p><textarea cols="50" rows="1"></textarea></p>
 			 <p><input type="submit" value="回答する"></p>
 		</form>
 	</body>
