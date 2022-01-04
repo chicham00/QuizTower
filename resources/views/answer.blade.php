@@ -15,7 +15,11 @@
 
 	</head>
 	<body>
-		<a>正解!!</a>
+		@if($result)
+		 	<p>正解！</p>
+		 @else
+		 	<p>残念,不正解(T . T)</p>
+		 @endif
 		<div>
 			<div class="flex-center position-ref full-height">
 				<div class="links">
