@@ -14,8 +14,8 @@ class QuizController extends Controller
 
     public function question()
     {
-        //DBから問題を取得し変数"quiz"へ代入
-        $quiz = Quiz::find(1);
+        //DBから問題をランダムに１件取得し変数"quiz"へ代入
+        $quiz = Quiz::inRandomOrder()->first();
         
         //代入した値をview'question'へ送る
         return view('question',compact('quiz'));
@@ -26,7 +26,7 @@ class QuizController extends Controller
     {
         $answer = $request->input('answer');
         
-        $quiz = Quiz::find(1);
+        $quiz = Quiz::find(5);
         $quiz->answer;
         
         //初めにfalseを定義
