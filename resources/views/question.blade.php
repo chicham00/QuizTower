@@ -21,6 +21,7 @@
 		<form action ="/answer" method="post">
 			@csrf
 			<p><textarea name ="answer" cols="50" rows="1"></textarea></p>
+			<input type ="hidden" name="quizid" value ="{{$quiz->id}}">
 			 <p><input type="submit" value="回答する"></p>
 		</form>
 	</body>

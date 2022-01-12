@@ -16,7 +16,9 @@
 		<div>
 			<div class="flex-center position-ref full-height">
 				<div class="links">
-                    <a href="/question">スタート</a>
+                    @foreach($categories as $category)
+                    	<div><a href="/question/{{$category->id}}">{{ $category->name }}</a></div>
+                    @endforeach
 				</div>
 			</div>
 		</div>
