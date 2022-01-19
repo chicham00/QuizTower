@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Quiz;
+use App\Lib\QuizLib;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -14,6 +15,9 @@ class QuizController extends Controller
      */
     public function index()
     {
+        // $test = new QuizLib();
+        // $result = $test->tasizan();
+        // var_dump($result);
         $categories = Category::get();
         return view('top', compact('categories'));
     }
@@ -41,24 +45,14 @@ class QuizController extends Controller
     // Request 変数名:前の画面から送られてきた値が入っている
     public function answer(Request $request)
     {
-        // ユーザーが入力した値をanswerに代入
-        $inputanswer = $request->input('answer');
+        // ユーザーが入力した値をinputanswerに代入
+        $inputAnswer = $request->input('answer');
         $id = $request->input('quizid');
 
         $quiz = Quiz::find($id);
 
-        // 取得したanswerを配列に変換する
-        $answers = explode(",", $quiz->answer);
-        // input('answer')と配列に直したanswersを比較するためにforeachを使用
-
-        // 初めにfalseを定義
-        $result = false;
-
-        foreach ($answers as $ans) {
-            if ($inputanswer == $ans) {
-                $result = true;
-            }
-        }
+        $quizLib = new QuizLib();
+        $result = $quizLib->answerCheck($quiz, $inputAnswer);
 
         return view('answer', compact('result'));
     }
